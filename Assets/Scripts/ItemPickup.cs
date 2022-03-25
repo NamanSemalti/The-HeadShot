@@ -8,10 +8,11 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private GameObject WeaponWithPlayer;
     [SerializeField] private GameObject Torch;
     public static int currentWeaponIndex;
-    
+    [SerializeField] private GameObject WeaponIcon;
     private void Start()
     {
         currentWeaponIndex = 0;
+        WeaponIcon.SetActive(false);
     }
     private void OnTriggerStay(Collider other)
     {
@@ -23,7 +24,7 @@ public class ItemPickup : MonoBehaviour
                 Destroy(Weapon.gameObject);
                 Torch.SetActive(false);
                 WeaponWithPlayer.SetActive(true);
-                
+                WeaponIcon.SetActive(true);
             }
         }
     }
