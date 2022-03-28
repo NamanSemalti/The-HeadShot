@@ -8,6 +8,8 @@ TagManager:
   - Pistol
   - PickupItems
   - PickUpBox
+  - GameManager
+  - Enemy
   layers:
   - Default
   - TransparentFX

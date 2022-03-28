@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   MagSize: 10
+  BulletReduced: 1

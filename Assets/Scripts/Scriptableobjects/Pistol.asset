@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   MagSize: 6
+  BulletReduced: 1

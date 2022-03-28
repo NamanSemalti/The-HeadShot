@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponInformation weaponInformation;
@@ -7,14 +7,17 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform Camera;
     public GameObject GameMangerObj;
     GameManager gameManagerScript;
+    [SerializeField] private Text ammotText;
     private void Start()
     {
+        ammotText.text = _WeaponCurrentMagSize.ToString();
         _WeaponCurrentMagSize = weaponInformation.MagSize;
         GameMangerObj = GameObject.FindGameObjectWithTag("GameManager");
         gameManagerScript = GameMangerObj.GetComponent<GameManager>();
     }
     private void OnEnable()
     {
+        ammotText.text = _WeaponCurrentMagSize.ToString();
         _WeaponCurrentMagSize = weaponInformation.MagSize;
         GameMangerObj = GameObject.FindGameObjectWithTag("GameManager");
         gameManagerScript = GameMangerObj.GetComponent<GameManager>();
@@ -23,6 +26,8 @@ public class Weapon : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            _WeaponCurrentMagSize -= weaponInformation.BulletReduced;
+            ammotText.text = _WeaponCurrentMagSize.ToString();
             Raycast();
         }
        
@@ -35,9 +40,9 @@ public class Weapon : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             Debug.DrawRay(Camera.position, Camera.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            if (hit.transform.tag == "PickupItems")
+            if (hit.transform.tag == "Enemy")
             {
-
+                hit.transform.GetComponent<AIDeath>().EnemyDeath();
 
             }
             else
