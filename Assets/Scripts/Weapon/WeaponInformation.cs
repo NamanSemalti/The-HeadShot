@@ -6,6 +6,6 @@ using UnityEngine;
 public class WeaponInformation : ScriptableObject
 {
     public int MagSize;
-    
+    public int BulletReduced;
 
 }

@@ -16,7 +16,7 @@ public class PlayerRayCast : MonoBehaviour
             
             if (Physics.Raycast(Camera.position, Camera.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.transform.name);
+               // Debug.Log(hit.transform.name);
                 Debug.DrawRay(Camera.position, Camera.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 if (hit.transform.tag == "PickupItems")
                 {
